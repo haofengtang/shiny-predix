@@ -4,7 +4,7 @@ applications:
    buildpack: https://github.com/beibeiyang/cf-buildpack-r.git
 
 services:
-- paul-govan-uaa
+- paulgovan-uaa
 
 env:
     uaa_service_label: predix-uaa
