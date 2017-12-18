@@ -72,12 +72,12 @@ server <- function(input, output, session) {
   }
   
   # Manually create a token
-  token <- oauth2.0_token(
-    app = app,
-    endpoint = api,
-    credentials = oauth2.0_access_token(api, app, params$code),
-    cache = FALSE
-  )
+  # token <- oauth2.0_token(
+  #   app = app,
+  #   endpoint = api,
+  #   credentials = oauth2.0_access_token(api, app, params$code),
+  #   cache = FALSE
+  # )
   
   # resp <- GET("https://api.github.com/user", config(token = token))
   # TODO: check for success/failure here
