@@ -14,7 +14,7 @@ if (interactive()) {
   APP_URL <- "http://localhost:5000/"
 } else {
   # deployed URL
-  APP_URL <- "https://shiny-oauth.run.aws-usw02-pr.ice.predix.io"
+  APP_URL <- "https://shiny-predix.run.aws-usw02-pr.ice.predix.io"
 }
 
 # Note that secret is not really secret, and it's fine to include inline
@@ -28,12 +28,12 @@ app <- oauth_app("shinypredix",
 # api <- oauth_endpoints("github")
 api <- oauth_endpoint(authorize = "oauth/authorize", 
                       access = "oauth/token",
-                      # validate = "check_token",
-                      # revoke = "oauth/token/revoke/user/",
+                      validate = "check_token",
+                      revoke = "oauth/token/revoke/user/",
                       base_url = "https://393ddb33-868f-4339-94ba-e4b413338404.predix-uaa.run.aws-usw02-pr.ice.predix.io")
 
 # Always request the minimal scope needed. 
-scope <- c("uaa.none", "openid")
+scope <- "uaa.none openid"
 
 # Shiny -------------------------------------------------------------------
 
