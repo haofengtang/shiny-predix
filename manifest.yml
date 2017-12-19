@@ -3,11 +3,11 @@ applications:
    memory: 256M
    buildpack: https://github.com/beibeiyang/cf-buildpack-r.git
 
-services:
-- paulgovan-uaa
+# services:
+# - <your-uaa>
 
 env:
     uaa_service_label: predix-uaa
-    uaaURL: https://b2199874-01c7-49e8-9307-acd95dc15a38.predix-uaa.run.aws-usw02-pr.ice.predix.io
-    base64ClientCredential: YXBwX2NsaWVudF9pZDpzZWNyZXQ=
-    loginBase64ClientCredential: bG9naW5fY2xpZW50X2lkOnNlY3JldA==
+    # uaaURL: <your-uaa-uri>
+    # base64ClientCredential: <your-base64-encoded-client-credential>
+    # loginBase64ClientCredential: <your-base64-encoded-login-credential>
