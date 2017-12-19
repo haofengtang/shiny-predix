@@ -1,5 +1,5 @@
 applications:
- - name: shiny-oauth
+ - name: shiny-predix
    memory: 256M
    buildpack: https://github.com/beibeiyang/cf-buildpack-r.git
 
