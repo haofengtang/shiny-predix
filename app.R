@@ -1,6 +1,8 @@
 library(shiny)
 library(httr)
 
+options(device='cairo')
+
 # OAuth setup --------------------------------------------------------
 
 # Most OAuth applications require that you redirect to a fixed and known
@@ -14,13 +16,13 @@ if (interactive()) {
   APP_URL <- "http://localhost:5000/"
 } else {
   # deployed URL
-  APP_URL <- "https://shiny-predix.run.aws-usw02-pr.ice.predix.io"
+  APP_URL <- "<your-app-url>"
 }
 
 # Note that secret is not really secret, and it's fine to include inline
 app <- oauth_app("shinypredix",
-                 key = "app_client_id",
-                 secret = "YXBwX2NsaWVudF9pZDpzZWNyZXQ=",
+                 key = "<your_app_client_id>",
+                 secret = "<your_base64_encoded_client_secret>",
                  redirect_uri = APP_URL
 )
 
@@ -30,7 +32,7 @@ api <- oauth_endpoint(authorize = "oauth/authorize",
                       access = "oauth/token",
                       validate = "check_token",
                       revoke = "oauth/token/revoke/user/",
-                      base_url = "https://393ddb33-868f-4339-94ba-e4b413338404.predix-uaa.run.aws-usw02-pr.ice.predix.io")
+                      base_url = "<your-uaa-uri>")
 
 # Always request the minimal scope needed. 
 scope <- "uaa.none openid"
