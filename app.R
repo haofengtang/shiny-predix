@@ -82,7 +82,7 @@ server <- function(input, output, session) {
   # resp <- GET("https://api.github.com/user", config(token = token))
   # TODO: check for success/failure here
   
-  output$code <- renderText("text")
+  output$code <- renderText("Hello World!")
 }
 
 # Note that we're using uiFunc, not ui!
