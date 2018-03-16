@@ -16,7 +16,8 @@ if (interactive()) {
   APP_URL <- "http://localhost:5000/"
 } else {
   # deployed URL
-  APP_URL <- "<your-app-url>"
+  #APP_URL <- "<your-app-url>"
+  APP_URL <- Sys.getenv("HOST")
 }
 
 # Note that secret is not really secret, and it's fine to include inline
@@ -58,20 +59,20 @@ ui <- fluidPage(
 # ui.R/server.R style files, that's fine too--just make this function the last
 # expression in your ui.R file.
 uiFunc <- function(req) {
-  if (!has_auth_code(parseQueryString(req$QUERY_STRING))) {
-    url <- oauth2.0_authorize_url(api, app, scope = scope)
-    redirect <- sprintf("location.replace(\"%s\");", url)
-    tags$script(HTML(redirect))
-  } else {
+  # if (!has_auth_code(parseQueryString(req$QUERY_STRING))) {
+  #   url <- oauth2.0_authorize_url(api, app, scope = scope)
+  #   redirect <- sprintf("location.replace(\"%s\");", url)
+  #   tags$script(HTML(redirect))
+  # } else {
     ui
-  }
+  # }
 }
 
 server <- function(input, output, session) {
   params <- parseQueryString(isolate(session$clientData$url_search))
-  if (!has_auth_code(params)) {
-    return()
-  }
+  # if (!has_auth_code(params)) {
+  #   return()
+  # }
   
   # Manually create a token
   # token <- oauth2.0_token(

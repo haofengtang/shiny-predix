@@ -1,13 +1,13 @@
 applications:
- - name: shiny-predix
+ - name: shiny-predix-jk
    memory: 256M
    buildpack: https://github.com/beibeiyang/cf-buildpack-r.git
 
 # services:
 # - <your-uaa>
 
-env:
-    uaa_service_label: predix-uaa
+# env:
+#     uaa_service_label: predix-uaa
     # uaaURL: <your-uaa-uri>
     # base64ClientCredential: <your-base64-encoded-client-credential>
     # loginBase64ClientCredential: <your-base64-encoded-login-credential>
