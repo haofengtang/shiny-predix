@@ -1,7 +1,7 @@
 applications:
  - name: shiny-predix-jk
    memory: 256M
-   buildpack: https://github.com/beibeiyang/cf-buildpack-r.git
+   buildpack: https://github.com/haofengtang/cf-buildpack-r.git
 
 # services:
 # - <your-uaa>
